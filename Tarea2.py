@@ -9,6 +9,15 @@ class Servicio:
         self.inicio = rango_servicio[0]
         self.fin = rango_servicio[1]
 
+    def tarifaDelDia(self, fecha):
+        dia = fecha.strftime("%a")
+        print(dia)
+
+        if(dia == "Saturday" or dia == "Sunday"):
+            return self.fin_de_semana
+
+        return self.semana
+
     def calcularServicio(self):
         try:
             assert((self.fin - self.inicio)> timedelta(minutes=15) and (self.fin - self.inicio)<timedelta(days=7))
