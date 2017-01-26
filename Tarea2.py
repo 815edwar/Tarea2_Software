@@ -8,3 +8,17 @@ class Servicio:
         self.tarifa_fin_de_semana = fin_de_semana
         self.inicio = rango_servicio[0]
         self.fin = rango_servicio[1]
+
+    def calcularServicio(self):
+        try:
+            assert((self.fin - self.inicio)> timedelta(minutes=15) or (self.fin - self.inicio)<timedelta(days=7))
+        except:
+            print("Las precondiciones no se cumplen")
+            exit()
+        
+        totalServicio = 0
+        while (self.inicio<self.fin):
+            self.inicio = self.inicio + timedelta(hours = 1)
+            totalServicio += self.tarifaDelDia(self.inicio)
+    
+        return totalServicio
