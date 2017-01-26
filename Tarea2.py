@@ -11,7 +11,7 @@ class Servicio:
 
     def calcularServicio(self):
         try:
-            assert((self.fin - self.inicio)> timedelta(minutes=15) or (self.fin - self.inicio)<timedelta(days=7))
+            assert((self.fin - self.inicio)> timedelta(minutes=15) and (self.fin - self.inicio)<timedelta(days=7))
         except:
             print("Las precondiciones no se cumplen")
             exit()
